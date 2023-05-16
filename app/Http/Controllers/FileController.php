@@ -44,7 +44,7 @@ class FileController extends Controller
         if ($request->hasfile('file_names')) {
             foreach ($request->file('file_names') as $file) {
                 $name = time() . rand(1, 50) . '.' . $file->extension();
-                $file->move(public_path('files'), $name);
+                $file->store('laptop', $name);
                 $files[] = $name;
             }
         }
